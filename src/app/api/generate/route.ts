@@ -9,6 +9,8 @@ import {
   getUserByClerkId,
   getCreditBalance,
 } from "@/lib/credits"
+import { canAccessTool, getUserPlan } from "@/lib/subscriptions"
+import { getToolBySlug } from "@/lib/tools"
 
 export const maxDuration = 60  // allow up to 60s for generation
 
@@ -64,6 +66,34 @@ export async function POST(req: NextRequest) {
       { error: "No credits remaining. Please upgrade your plan." },
       { status: 402 }
     )
+  }
+
+  // ── 4b. Tool access gate ──────────────────────────────────
+  const toolConfig = await getToolBySlug(toolSlug)
+  const toolRequiresUpload = toolConfig?.requiresImageUpload ?? false
+  const { allowed, reason } = await canAccessTool(user.id, toolRequiresUpload)
+  if (!allowed) {
+    return NextResponse.json(
+      {
+        error: reason ?? "This tool requires a Pro or Premium plan.",
+        upgradeRequired: true,
+      },
+      { status: 403 }
+    )
+  }
+
+  // ── 4c. HD quality gate ───────────────────────────────────
+  if (quality === "high") {
+    const plan = await getUserPlan(user.id)
+    if (plan === "free") {
+      return NextResponse.json(
+        {
+          error: "HD quality requires a Pro or Premium plan.",
+          upgradeRequired: true,
+        },
+        { status: 403 }
+      )
+    }
   }
 
   // ── 5. Generate image with OpenAI ────────────────────────

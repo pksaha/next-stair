@@ -79,6 +79,26 @@ export const toolConfigs = pgTable("tool_configs", {
   createdAt: timestamp("created_at").notNull().defaultNow(),
 })
 
+// ─── subscriptions ────────────────────────────────────────
+export const subscriptions = pgTable("subscriptions", {
+  id: uuid("id").primaryKey().defaultRandom(),
+  userId: uuid("user_id")
+    .notNull()
+    .references(() => users.id, { onDelete: "cascade" })
+    .unique(),
+  plan: text("plan").notNull().default("free"),
+  status: text("status").notNull().default("active"),
+  paddleCustomerId: text("paddle_customer_id"),
+  paddleSubscriptionId: text("paddle_subscription_id").unique(),
+  paddleTransactionId: text("paddle_transaction_id"),
+  currentPeriodEnd: timestamp("current_period_end"),
+  cancelAtPeriodEnd: boolean("cancel_at_period_end")
+    .notNull()
+    .default(false),
+  createdAt: timestamp("created_at").notNull().defaultNow(),
+  updatedAt: timestamp("updated_at").notNull().defaultNow(),
+})
+
 // ─── TypeScript types ────────────────────────────────────
 export type User = typeof users.$inferSelect
 export type NewUser = typeof users.$inferInsert
@@ -86,3 +106,6 @@ export type Credit = typeof credits.$inferSelect
 export type Generation = typeof generations.$inferSelect
 export type NewGeneration = typeof generations.$inferInsert
 export type ToolConfig = typeof toolConfigs.$inferSelect
+export type Subscription = typeof subscriptions.$inferSelect
+export type NewSubscription = typeof subscriptions.$inferInsert
+export type PlanTier = "free" | "pro" | "premium"

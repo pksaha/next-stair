@@ -33,6 +33,7 @@ export function ImageGenerator({
   const [isGenerating, setIsGenerating] = useState(false)
   const [result, setResult] = useState<GenerationResult | null>(null)
   const [error, setError] = useState<string | null>(null)
+  const [upgradeRequired, setUpgradeRequired] = useState(false)
 
   async function handleGenerate() {
     if (!prompt.trim()) {
@@ -41,6 +42,7 @@ export function ImageGenerator({
     }
 
     setIsGenerating(true)
+    setUpgradeRequired(false)
     setError(null)
     setResult(null)
 
@@ -61,6 +63,7 @@ export function ImageGenerator({
 
       if (!res.ok) {
         setError(data.error ?? "Generation failed")
+        if (data.upgradeRequired) setUpgradeRequired(true)
         return
       }
 
@@ -124,9 +127,24 @@ export function ImageGenerator({
         />
 
         {error && (
-          <div className="text-sm text-destructive border border-destructive/30
-                          bg-destructive/10 rounded-lg px-4 py-3">
-            {error}
+          <div className={[
+            "text-sm border rounded-lg px-4 py-3 space-y-3",
+            upgradeRequired
+              ? "border-amber-300 bg-amber-50 text-amber-900"
+              : "border-destructive/30 bg-destructive/10 text-destructive",
+          ].join(" ")}>
+            <p>{error}</p>
+            {upgradeRequired && (
+              <a
+                href="/en/pricing"
+                className="inline-block bg-primary
+                           text-primary-foreground px-4 py-2
+                           rounded-md text-xs font-medium
+                           hover:bg-primary/90 transition-colors"
+              >
+                View pricing plans →
+              </a>
+            )}
           </div>
         )}
 

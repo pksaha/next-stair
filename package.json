@@ -16,6 +16,7 @@
   "dependencies": {
     "@clerk/nextjs": "^7.3.5",
     "@neondatabase/serverless": "^1.1.0",
+    "@paddle/paddle-js": "^1.6.4",
     "class-variance-authority": "^0.7.1",
     "cloudinary": "^2.10.0",
     "clsx": "^2.1.1",
