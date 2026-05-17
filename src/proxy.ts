@@ -1,5 +1,6 @@
 import { clerkMiddleware, createRouteMatcher } from "@clerk/nextjs/server"
 import createIntlMiddleware from "next-intl/middleware"
+import { NextResponse } from "next/server"
 import { routing } from "./i18n/routing"
 
 const intlMiddleware = createIntlMiddleware(routing)
@@ -11,8 +12,12 @@ const isProtectedRoute = createRouteMatcher([
   "/generate(.*)",
 ])
 
+const isApiRoute = createRouteMatcher(["/api/(.*)", "/trpc/(.*)"])
+
 export const proxy = clerkMiddleware(async (auth, req) => {
   if (isProtectedRoute(req)) await auth.protect()
+  // API routes need Clerk auth but not locale routing
+  if (isApiRoute(req)) return NextResponse.next()
   return intlMiddleware(req)
 })
 
