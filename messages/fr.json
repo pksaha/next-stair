@@ -77,5 +77,11 @@
     "goHome": "Aller à l'accueil",
     "noCredits": "Vous n'avez plus de crédits",
     "upgradePrompt": "Mettez à niveau votre plan pour continuer"
+  },
+  "aiEffects": {
+    "title": "Effets d'image IA",
+    "subtitle": "{{count}} outils IA pour générer, modifier et transformer des images",
+    "tryFree": "Essayer gratuitement →",
+    "uploadRequired": "Télécharger photo"
   }
 }

@@ -77,5 +77,11 @@
     "goHome": "Zur Startseite",
     "noCredits": "Kein Guthaben mehr",
     "upgradePrompt": "Upgrade deinen Plan um weiterzumachen"
+  },
+  "aiEffects": {
+    "title": "KI-Bildeffekte",
+    "subtitle": "{{count}} KI-Tools zum Erstellen, Bearbeiten und Transformieren von Bildern",
+    "tryFree": "Kostenlos testen →",
+    "uploadRequired": "Foto hochladen"
   }
 }

@@ -77,5 +77,11 @@
     "goHome": "ホームへ戻る",
     "noCredits": "クレジットがありません",
     "upgradePrompt": "生成を続けるにはプランをアップグレードしてください"
+  },
+  "aiEffects": {
+    "title": "AI画像エフェクト",
+    "subtitle": "画像の生成・編集・変換ができる{{count}}種類のAIツール",
+    "tryFree": "無料で試す →",
+    "uploadRequired": "写真をアップロード"
   }
 }

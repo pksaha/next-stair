@@ -77,5 +77,11 @@
     "goHome": "Go home",
     "noCredits": "You have no credits left",
     "upgradePrompt": "Upgrade your plan to continue generating images"
+  },
+  "aiEffects": {
+    "title": "AI Image Effects",
+    "subtitle": "{{count}} AI-powered tools to generate, edit, and transform images",
+    "tryFree": "Try free →",
+    "uploadRequired": "Upload photo"
   }
 }
