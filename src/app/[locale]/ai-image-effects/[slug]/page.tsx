@@ -3,7 +3,9 @@ import type { Metadata } from "next"
 import { getTranslations } from "next-intl/server"
 import { routing } from "@/i18n/routing"
 import { getAllToolSlugs, getToolBySlug } from "@/lib/tools"
+import { getAllPublishedPosts, resolvePostLocale } from "@/lib/blog"
 import { ImageGenerator } from "@/components/ImageGenerator"
+import { Link } from "@/i18n/navigation"
 
 // ── Types ──────────────────────────────────────────────────
 type Params = Promise<{ locale: string; slug: string }>
@@ -104,6 +106,13 @@ export default async function ToolPage(
   const faqItems = Array.isArray(tool.faqItems)
     ? (tool.faqItems as { q: string; a: string }[])
     : []
+
+  // Find blog posts that mention this tool in
+  // their relatedToolSlugs
+  const allPosts = await getAllPublishedPosts()
+  const relatedPosts = allPosts
+    .filter((p) => p.relatedToolSlugs.includes(slug))
+    .slice(0, 3)
 
   return (
     <>
@@ -231,6 +240,42 @@ export default async function ToolPage(
             </a>
           </p>
         </section>
+
+        {/* ── Related blog posts ────────────────────────── */}
+        {relatedPosts.length > 0 && (
+          <section className="space-y-4">
+            <h2 className="text-xl font-bold">
+              Prompt guides &amp; tutorials
+            </h2>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+              {relatedPosts.map((post) => {
+                const resolved = resolvePostLocale(post, locale)
+                return (
+                  <Link
+                    key={post.slug}
+                    href={`/blog/${post.slug}`}
+                    className="group border rounded-xl p-4
+                               space-y-2 hover:border-primary/50
+                               hover:bg-muted/20 transition-colors"
+                  >
+                    <p className="text-xs text-muted-foreground
+                                  capitalize">
+                      {post.category.replace(/-/g, " ")}
+                    </p>
+                    <p className="text-sm font-medium leading-snug
+                                  group-hover:text-primary
+                                  transition-colors">
+                      {resolved.title}
+                    </p>
+                    <p className="text-xs text-muted-foreground">
+                      {post.readingTimeMinutes} min read
+                    </p>
+                  </Link>
+                )
+              })}
+            </div>
+          </section>
+        )}
 
       </div>
     </>

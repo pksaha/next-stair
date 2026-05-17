@@ -1,3 +1,4 @@
+import { sql } from "drizzle-orm"
 import {
   pgTable,
   text,
@@ -99,6 +100,55 @@ export const subscriptions = pgTable("subscriptions", {
   updatedAt: timestamp("updated_at").notNull().defaultNow(),
 })
 
+// ─── blog_posts ───────────────────────────────────────────
+// One row per article. All 11 language versions stored
+// in the translations JSONB column. Base content is English.
+export const blogPosts = pgTable("blog_posts", {
+  id: uuid("id").primaryKey().defaultRandom(),
+  // URL slug — same across all locales
+  // e.g. "12-anime-portrait-prompts"
+  slug: text("slug").notNull().unique(),
+
+  // Base language content (English)
+  title: text("title").notNull(),
+  excerpt: text("excerpt").notNull(),   // 150-160 chars
+  content: text("content").notNull(),   // Markdown body
+
+  // Metadata
+  author: text("author").notNull().default("Editorial Team"),
+  category: text("category").notNull(),
+  tags: text("tags").array().notNull().default(sql`'{}'`),
+  coverImageUrl: text("cover_image_url"),
+  readingTimeMinutes: integer("reading_time_minutes")
+    .notNull()
+    .default(5),
+
+  // SEO
+  seoTitle: text("seo_title"),
+  seoDescription: text("seo_description"),
+
+  // Internal linking — array of tool slugs this post
+  // should link to (e.g. ["ai-headshot-generator"])
+  relatedToolSlugs: text("related_tool_slugs")
+    .array()
+    .notNull()
+    .default(sql`'{}'`),
+
+  // Translations for other 10 locales.
+  // Shape: { "bn": { title, excerpt, content }, "hi": {...} }
+  // English is base — no entry needed here for "en"
+  translations: jsonb("translations"),
+
+  // Publishing
+  isPublished: boolean("is_published")
+    .notNull()
+    .default(false),
+  publishedAt: timestamp("published_at"),
+
+  createdAt: timestamp("created_at").notNull().defaultNow(),
+  updatedAt: timestamp("updated_at").notNull().defaultNow(),
+})
+
 // ─── TypeScript types ────────────────────────────────────
 export type User = typeof users.$inferSelect
 export type NewUser = typeof users.$inferInsert
@@ -109,3 +159,12 @@ export type ToolConfig = typeof toolConfigs.$inferSelect
 export type Subscription = typeof subscriptions.$inferSelect
 export type NewSubscription = typeof subscriptions.$inferInsert
 export type PlanTier = "free" | "pro" | "premium"
+export type BlogPost = typeof blogPosts.$inferSelect
+export type NewBlogPost = typeof blogPosts.$inferInsert
+export type BlogPostTranslation = {
+  title: string
+  excerpt: string
+  content: string
+  seoTitle?: string
+  seoDescription?: string
+}

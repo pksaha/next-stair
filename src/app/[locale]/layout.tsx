@@ -47,6 +47,13 @@ export default async function LocaleLayout({
               AI Tools
             </Link>
             <Link
+              href="/blog"
+              className="text-muted-foreground hover:text-foreground
+                         transition-colors"
+            >
+              Blog
+            </Link>
+            <Link
               href="/pricing"
               className="text-muted-foreground hover:text-foreground
                          transition-colors"
