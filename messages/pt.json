@@ -1,0 +1,81 @@
+{
+  "nav": {
+    "home": "Início",
+    "tools": "Ferramentas IA",
+    "pricing": "Preços",
+    "blog": "Blog",
+    "prompts": "Prompts",
+    "dashboard": "Painel",
+    "signIn": "Entrar",
+    "signUp": "Cadastrar",
+    "signOut": "Sair"
+  },
+  "home": {
+    "hero": {
+      "badge": "Desenvolvido por GPT-Image",
+      "title": "Crie imagens incríveis com IA",
+      "subtitle": "Gere, edite e transforme imagens em segundos.",
+      "cta": "Começar gratuitamente",
+      "ctaSecondary": "Ver exemplos"
+    },
+    "tools": {
+      "title": "20+ ferramentas de imagem IA",
+      "subtitle": "Tudo que você precisa para criar e editar imagens"
+    }
+  },
+  "dashboard": {
+    "title": "Painel",
+    "welcome": "Bem-vindo de volta",
+    "credits": "Créditos",
+    "generated": "Imagens geradas",
+    "plan": "Plano",
+    "free": "Grátis",
+    "generate": "Gerar imagem",
+    "history": "Histórico",
+    "noImages": "Ainda sem imagens. Comece a criar!"
+  },
+  "tools": {
+    "headshot": "Gerador de retratos IA",
+    "avatar": "Gerador de avatares IA",
+    "pixar": "Gerador Pixar IA",
+    "cosplay": "Gerador de cosplay IA",
+    "anime": "Anime para real",
+    "sticker": "Gerador de stickers IA",
+    "sketch": "Foto para esboço IA",
+    "hairstyle": "Mudança de penteado IA",
+    "restoration": "Restauração de fotos",
+    "professional": "Foto profissional IA"
+  },
+  "common": {
+    "loading": "Carregando...",
+    "error": "Algo deu errado",
+    "retry": "Tentar novamente",
+    "download": "Baixar",
+    "share": "Compartilhar",
+    "delete": "Excluir",
+    "cancel": "Cancelar",
+    "save": "Salvar",
+    "upload": "Enviar imagem",
+    "generate": "Gerar",
+    "generating": "Gerando...",
+    "credits": "créditos"
+  },
+  "pricing": {
+    "title": "Preços simples",
+    "subtitle": "Comece de graça, atualize quando precisar",
+    "free": "Grátis",
+    "pro": "Pro",
+    "unlimited": "Ilimitado",
+    "perMonth": "/mês",
+    "getStarted": "Começar",
+    "upgrade": "Atualizar agora",
+    "mostPopular": "Mais popular"
+  },
+  "errors": {
+    "notFound": "Página não encontrada",
+    "notFoundDesc": "A página que você procura não existe.",
+    "goHome": "Ir para o início",
+    "noCredits": "Você não tem mais créditos",
+    "upgradePrompt": "Atualize seu plano para continuar"
+  }
+}

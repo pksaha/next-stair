@@ -1,0 +1,81 @@
+{
+  "nav": {
+    "home": "Accueil",
+    "tools": "Outils IA",
+    "pricing": "Tarifs",
+    "blog": "Blog",
+    "prompts": "Prompts",
+    "dashboard": "Tableau de bord",
+    "signIn": "Se connecter",
+    "signUp": "S'inscrire",
+    "signOut": "Se déconnecter"
+  },
+  "home": {
+    "hero": {
+      "badge": "Propulsé par GPT-Image",
+      "title": "Créez des images époustouflantes avec l'IA",
+      "subtitle": "Générez, modifiez et transformez des images en quelques secondes.",
+      "cta": "Commencer gratuitement",
+      "ctaSecondary": "Voir des exemples"
+    },
+    "tools": {
+      "title": "20+ outils d'images IA",
+      "subtitle": "Tout ce dont vous avez besoin pour créer et modifier des images"
+    }
+  },
+  "dashboard": {
+    "title": "Tableau de bord",
+    "welcome": "Bon retour",
+    "credits": "Crédits",
+    "generated": "Images générées",
+    "plan": "Plan",
+    "free": "Gratuit",
+    "generate": "Générer une image",
+    "history": "Historique",
+    "noImages": "Pas encore d'images. Commencez à créer !"
+  },
+  "tools": {
+    "headshot": "Générateur de portraits IA",
+    "avatar": "Générateur d'avatars IA",
+    "pixar": "Générateur Pixar IA",
+    "cosplay": "Générateur cosplay IA",
+    "anime": "Anime en réel",
+    "sticker": "Générateur de stickers IA",
+    "sketch": "Photo en esquisse IA",
+    "hairstyle": "Changeur de coiffure IA",
+    "restoration": "Restauration de photos",
+    "professional": "Photo professionnelle IA"
+  },
+  "common": {
+    "loading": "Chargement...",
+    "error": "Quelque chose s'est mal passé",
+    "retry": "Réessayer",
+    "download": "Télécharger",
+    "share": "Partager",
+    "delete": "Supprimer",
+    "cancel": "Annuler",
+    "save": "Enregistrer",
+    "upload": "Téléverser une image",
+    "generate": "Générer",
+    "generating": "Génération...",
+    "credits": "crédits"
+  },
+  "pricing": {
+    "title": "Tarification simple",
+    "subtitle": "Commencez gratuitement, mettez à niveau si nécessaire",
+    "free": "Gratuit",
+    "pro": "Pro",
+    "unlimited": "Illimité",
+    "perMonth": "/mois",
+    "getStarted": "Commencer",
+    "upgrade": "Mettre à niveau",
+    "mostPopular": "Le plus populaire"
+  },
+  "errors": {
+    "notFound": "Page introuvable",
+    "notFoundDesc": "La page que vous recherchez n'existe pas.",
+    "goHome": "Aller à l'accueil",
+    "noCredits": "Vous n'avez plus de crédits",
+    "upgradePrompt": "Mettez à niveau votre plan pour continuer"
+  }
+}

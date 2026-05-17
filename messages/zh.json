@@ -1,0 +1,81 @@
+{
+  "nav": {
+    "home": "首页",
+    "tools": "AI工具",
+    "pricing": "价格",
+    "blog": "博客",
+    "prompts": "提示词",
+    "dashboard": "控制台",
+    "signIn": "登录",
+    "signUp": "注册",
+    "signOut": "退出"
+  },
+  "home": {
+    "hero": {
+      "badge": "由GPT-Image驱动",
+      "title": "用AI创作惊艳图像",
+      "subtitle": "使用最先进的AI模型，在几秒内生成、编辑和转换图像。",
+      "cta": "免费开始创作",
+      "ctaSecondary": "查看示例"
+    },
+    "tools": {
+      "title": "20+ AI图像工具",
+      "subtitle": "创建、编辑和转换图像所需的一切"
+    }
+  },
+  "dashboard": {
+    "title": "控制台",
+    "welcome": "欢迎回来",
+    "credits": "积分",
+    "generated": "已生成图像",
+    "plan": "套餐",
+    "free": "免费",
+    "generate": "生成图像",
+    "history": "历史记录",
+    "noImages": "还没有图像，开始创作吧！"
+  },
+  "tools": {
+    "headshot": "AI头像生成器",
+    "avatar": "AI虚拟形象生成器",
+    "pixar": "皮克斯AI生成器",
+    "cosplay": "AI角色扮演生成器",
+    "anime": "动漫转真实",
+    "sticker": "AI贴纸生成器",
+    "sketch": "AI照片转素描",
+    "hairstyle": "AI发型更换",
+    "restoration": "照片修复",
+    "professional": "AI专业照片"
+  },
+  "common": {
+    "loading": "加载中...",
+    "error": "出现错误",
+    "retry": "重试",
+    "download": "下载",
+    "share": "分享",
+    "delete": "删除",
+    "cancel": "取消",
+    "save": "保存",
+    "upload": "上传图片",
+    "generate": "生成",
+    "generating": "生成中...",
+    "credits": "积分"
+  },
+  "pricing": {
+    "title": "简单定价",
+    "subtitle": "免费开始，按需升级",
+    "free": "免费",
+    "pro": "专业版",
+    "unlimited": "无限制",
+    "perMonth": "/月",
+    "getStarted": "立即开始",
+    "upgrade": "立即升级",
+    "mostPopular": "最受欢迎"
+  },
+  "errors": {
+    "notFound": "页面未找到",
+    "notFoundDesc": "您查找的页面不存在。",
+    "goHome": "返回首页",
+    "noCredits": "您的积分已用完",
+    "upgradePrompt": "升级套餐以继续生成图像"
+  }
+}

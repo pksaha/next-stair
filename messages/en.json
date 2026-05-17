@@ -1,0 +1,81 @@
+{
+  "nav": {
+    "home": "Home",
+    "tools": "AI Tools",
+    "pricing": "Pricing",
+    "blog": "Blog",
+    "prompts": "Prompts",
+    "dashboard": "Dashboard",
+    "signIn": "Sign in",
+    "signUp": "Sign up",
+    "signOut": "Sign out"
+  },
+  "home": {
+    "hero": {
+      "badge": "Powered by GPT-Image",
+      "title": "Create stunning images with AI",
+      "subtitle": "Generate, edit, and transform images in seconds using the most advanced AI models available.",
+      "cta": "Start creating free",
+      "ctaSecondary": "See examples"
+    },
+    "tools": {
+      "title": "20+ AI Image Tools",
+      "subtitle": "Everything you need to create, edit, and transform images"
+    }
+  },
+  "dashboard": {
+    "title": "Dashboard",
+    "welcome": "Welcome back",
+    "credits": "Credits",
+    "generated": "Images generated",
+    "plan": "Plan",
+    "free": "Free",
+    "generate": "Generate image",
+    "history": "History",
+    "noImages": "No images yet. Start generating!"
+  },
+  "tools": {
+    "headshot": "AI Headshot Generator",
+    "avatar": "AI Avatar Generator",
+    "pixar": "Pixar AI Generator",
+    "cosplay": "AI Cosplay Generator",
+    "anime": "Anime to Real Life",
+    "sticker": "AI Sticker Generator",
+    "sketch": "AI Photo to Sketch",
+    "hairstyle": "AI Hairstyle Changer",
+    "restoration": "Photo Restoration",
+    "professional": "AI Professional Photo"
+  },
+  "common": {
+    "loading": "Loading...",
+    "error": "Something went wrong",
+    "retry": "Try again",
+    "download": "Download",
+    "share": "Share",
+    "delete": "Delete",
+    "cancel": "Cancel",
+    "save": "Save",
+    "upload": "Upload image",
+    "generate": "Generate",
+    "generating": "Generating...",
+    "credits": "credits"
+  },
+  "pricing": {
+    "title": "Simple pricing",
+    "subtitle": "Start free, upgrade when you need more",
+    "free": "Free",
+    "pro": "Pro",
+    "unlimited": "Unlimited",
+    "perMonth": "/month",
+    "getStarted": "Get started",
+    "upgrade": "Upgrade now",
+    "mostPopular": "Most popular"
+  },
+  "errors": {
+    "notFound": "Page not found",
+    "notFoundDesc": "The page you are looking for does not exist.",
+    "goHome": "Go home",
+    "noCredits": "You have no credits left",
+    "upgradePrompt": "Upgrade your plan to continue generating images"
+  }
+}

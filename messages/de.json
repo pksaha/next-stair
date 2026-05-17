@@ -1,0 +1,81 @@
+{
+  "nav": {
+    "home": "Startseite",
+    "tools": "KI-Werkzeuge",
+    "pricing": "Preise",
+    "blog": "Blog",
+    "prompts": "Prompts",
+    "dashboard": "Dashboard",
+    "signIn": "Anmelden",
+    "signUp": "Registrieren",
+    "signOut": "Abmelden"
+  },
+  "home": {
+    "hero": {
+      "badge": "Powered by GPT-Image",
+      "title": "Erstelle beeindruckende Bilder mit KI",
+      "subtitle": "Generiere, bearbeite und transformiere Bilder in Sekunden.",
+      "cta": "Kostenlos starten",
+      "ctaSecondary": "Beispiele ansehen"
+    },
+    "tools": {
+      "title": "20+ KI-Bildwerkzeuge",
+      "subtitle": "Alles zum Erstellen, Bearbeiten und Transformieren von Bildern"
+    }
+  },
+  "dashboard": {
+    "title": "Dashboard",
+    "welcome": "Willkommen zurück",
+    "credits": "Guthaben",
+    "generated": "Erstellte Bilder",
+    "plan": "Plan",
+    "free": "Kostenlos",
+    "generate": "Bild erstellen",
+    "history": "Verlauf",
+    "noImages": "Noch keine Bilder. Fange an zu erstellen!"
+  },
+  "tools": {
+    "headshot": "KI-Portraitgenerator",
+    "avatar": "KI-Avatargenerator",
+    "pixar": "Pixar-KI-Generator",
+    "cosplay": "KI-Cosplaygenerator",
+    "anime": "Anime zu Real",
+    "sticker": "KI-Stickergenerator",
+    "sketch": "KI-Foto zu Skizze",
+    "hairstyle": "KI-Frisurenwechsler",
+    "restoration": "Fotorestaurierung",
+    "professional": "KI-Profifoto"
+  },
+  "common": {
+    "loading": "Lädt...",
+    "error": "Etwas ist schiefgelaufen",
+    "retry": "Erneut versuchen",
+    "download": "Herunterladen",
+    "share": "Teilen",
+    "delete": "Löschen",
+    "cancel": "Abbrechen",
+    "save": "Speichern",
+    "upload": "Bild hochladen",
+    "generate": "Erstellen",
+    "generating": "Wird erstellt...",
+    "credits": "Guthaben"
+  },
+  "pricing": {
+    "title": "Einfache Preisgestaltung",
+    "subtitle": "Kostenlos starten, bei Bedarf upgraden",
+    "free": "Kostenlos",
+    "pro": "Pro",
+    "unlimited": "Unbegrenzt",
+    "perMonth": "/Monat",
+    "getStarted": "Loslegen",
+    "upgrade": "Jetzt upgraden",
+    "mostPopular": "Am beliebtesten"
+  },
+  "errors": {
+    "notFound": "Seite nicht gefunden",
+    "notFoundDesc": "Die gesuchte Seite existiert nicht.",
+    "goHome": "Zur Startseite",
+    "noCredits": "Kein Guthaben mehr",
+    "upgradePrompt": "Upgrade deinen Plan um weiterzumachen"
+  }
+}
