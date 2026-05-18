@@ -54,6 +54,13 @@ export default async function LocaleLayout({
               Blog
             </Link>
             <Link
+              href="/prompts"
+              className="text-muted-foreground hover:text-foreground
+                         transition-colors"
+            >
+              Prompts
+            </Link>
+            <Link
               href="/pricing"
               className="text-muted-foreground hover:text-foreground
                          transition-colors"

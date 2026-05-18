@@ -83,5 +83,17 @@
     "subtitle": "{{count}} KI-Tools zum Erstellen, Bearbeiten und Transformieren von Bildern",
     "tryFree": "Kostenlos testen →",
     "uploadRequired": "Foto hochladen"
+  },
+  "prompts": {
+    "title": "KI-Bildprompt-Galerie",
+    "subtitle": "Kuratierte Prompts nach Kategorien. Kopieren und sofort generieren.",
+    "copy": "Kopieren",
+    "copied": "Kopiert!",
+    "tryIt": "Ausprobieren →",
+    "fullGuide": "Vollständigen Guide lesen →",
+    "allPrompts": "Alle Prompts",
+    "wantGuides": "Vollständige Guides gewünscht?",
+    "guidesSubtitle": "Jede Kategorie hat einen ausführlichen Artikel.",
+    "browseGuides": "Alle Prompt-Guides durchsuchen →"
   }
 }

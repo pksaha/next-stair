@@ -83,5 +83,17 @@
     "subtitle": "{{count}} outils IA pour générer, modifier et transformer des images",
     "tryFree": "Essayer gratuitement →",
     "uploadRequired": "Télécharger photo"
+  },
+  "prompts": {
+    "title": "Galerie de prompts IA",
+    "subtitle": "Prompts curatés par catégories. Copiez n'importe lequel et générez instantanément.",
+    "copy": "Copier",
+    "copied": "Copié !",
+    "tryIt": "Essayer →",
+    "fullGuide": "Lire le guide complet →",
+    "allPrompts": "Tous les prompts",
+    "wantGuides": "Vous voulez les guides complets ?",
+    "guidesSubtitle": "Chaque catégorie a un article détaillé.",
+    "browseGuides": "Parcourir tous les guides →"
   }
 }

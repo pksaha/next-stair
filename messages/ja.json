@@ -83,5 +83,17 @@
     "subtitle": "画像の生成・編集・変換ができる{{count}}種類のAIツール",
     "tryFree": "無料で試す →",
     "uploadRequired": "写真をアップロード"
+  },
+  "prompts": {
+    "title": "AIイメージプロンプトギャラリー",
+    "subtitle": "カテゴリ別厳選プロンプト。コピーしてすぐ生成。",
+    "copy": "コピー",
+    "copied": "コピー完了！",
+    "tryIt": "試してみる →",
+    "fullGuide": "完全ガイドを読む →",
+    "allPrompts": "すべてのプロンプト",
+    "wantGuides": "完全ガイドが欲しいですか？",
+    "guidesSubtitle": "各カテゴリに詳細な記事があります。",
+    "browseGuides": "すべてのプロンプトガイドを見る →"
   }
 }

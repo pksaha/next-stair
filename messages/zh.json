@@ -83,5 +83,17 @@
     "subtitle": "{{count}}款AI图像工具 — 生成、编辑和变换图像",
     "tryFree": "免费试用 →",
     "uploadRequired": "上传图片"
+  },
+  "prompts": {
+    "title": "AI图像提示词库",
+    "subtitle": "精选各类提示词，复制即用，立即生成。",
+    "copy": "复制",
+    "copied": "已复制！",
+    "tryIt": "立即尝试 →",
+    "fullGuide": "阅读完整指南 →",
+    "allPrompts": "全部提示词",
+    "wantGuides": "需要完整指南？",
+    "guidesSubtitle": "每个类别都有包含技巧和说明的详细文章。",
+    "browseGuides": "浏览所有提示词指南 →"
   }
 }

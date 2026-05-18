@@ -83,5 +83,17 @@
     "subtitle": "이미지 생성, 편집, 변환을 위한 {{count}}가지 AI 도구",
     "tryFree": "무료로 시작 →",
     "uploadRequired": "사진 업로드"
+  },
+  "prompts": {
+    "title": "AI 이미지 프롬프트 갤러리",
+    "subtitle": "카테고리별 엄선된 프롬프트. 복사하고 즉시 생성하세요.",
+    "copy": "복사",
+    "copied": "복사됨!",
+    "tryIt": "사용해보기 →",
+    "fullGuide": "전체 가이드 읽기 →",
+    "allPrompts": "전체 프롬프트",
+    "wantGuides": "전체 가이드가 필요하신가요?",
+    "guidesSubtitle": "각 카테고리마다 자세한 문서가 있습니다.",
+    "browseGuides": "모든 프롬프트 가이드 보기 →"
   }
 }

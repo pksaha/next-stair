@@ -83,5 +83,17 @@
     "subtitle": "{{count}} AI-powered tools to generate, edit, and transform images",
     "tryFree": "Try free →",
     "uploadRequired": "Upload photo"
+  },
+  "prompts": {
+    "title": "AI Image Prompt Gallery",
+    "subtitle": "Curated prompts across categories. Copy any prompt and generate instantly.",
+    "copy": "Copy",
+    "copied": "Copied!",
+    "tryIt": "Try it →",
+    "fullGuide": "Read the full guide →",
+    "allPrompts": "All prompts",
+    "wantGuides": "Want the full guides?",
+    "guidesSubtitle": "Each category has a detailed article with prompts, tips, and style explanations.",
+    "browseGuides": "Browse all prompt guides →"
   }
 }
