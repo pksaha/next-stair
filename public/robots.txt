@@ -1,0 +1,14 @@
+# next-stair robots.txt
+# Allow all crawlers to index all pages
+User-agent: *
+Allow: /
+
+# Block access to private areas
+Disallow: /api/
+Disallow: /dashboard/
+Disallow: /sign-in/
+Disallow: /sign-up/
+Disallow: /sentry-tunnel/
+
+# Sitemap location (update YOUR_DOMAIN before launch)
+Sitemap: https://YOUR_DOMAIN/sitemap.xml

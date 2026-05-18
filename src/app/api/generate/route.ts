@@ -11,10 +11,19 @@ import {
 } from "@/lib/credits"
 import { canAccessTool, getUserPlan } from "@/lib/subscriptions"
 import { getToolBySlug } from "@/lib/tools"
+import { checkRateLimit } from "@/lib/rate-limit"
 
 export const maxDuration = 60  // allow up to 60s for generation
 
 export async function POST(req: NextRequest) {
+  // ── 0. Rate limit check ─────────────────────────────────
+  const ip =
+    req.headers.get("x-forwarded-for")?.split(",")[0].trim() ??
+    req.headers.get("x-real-ip") ??
+    "anonymous"
+  const rateLimitResponse = await checkRateLimit("generate", ip)
+  if (rateLimitResponse) return rateLimitResponse
+
   // ── 1. Auth check ───────────────────────────────────────
   const { userId: clerkId } = await auth()
   if (!clerkId) {
