@@ -225,38 +225,8 @@ export default async function ToolPage(
 
             <div className="space-y-4">
               {faqItems.map((item, i) => (
-                <details
-                  key={i}
-                  style={{
-                    background: "var(--surface)",
-                    border: "1px solid var(--border-soft)",
-                    borderRadius: "var(--radius-md)",
-                    padding: "16px 20px",
-                    cursor: "pointer",
-                  }}
-                  onToggle={(e) => {
-                    const el = e.currentTarget
-                    if (el.open) {
-                      el.style.borderLeft =
-                        "3px solid var(--gold)"
-                      el.style.paddingLeft = "17px"
-                    } else {
-                      el.style.borderLeft = ""
-                      el.style.paddingLeft = "20px"
-                    }
-                  }}
-                >
-                  <summary
-                    style={{
-                      fontWeight: 600,
-                      fontSize: "0.9375rem",
-                      color: "var(--text-1)",
-                      listStyle: "none",
-                      display: "flex",
-                      justifyContent: "space-between",
-                      alignItems: "center",
-                    }}
-                  >
+                <details key={i} className="faq-item">
+                  <summary>
                     {item.q}
                     <span
                       style={{

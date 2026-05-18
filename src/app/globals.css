@@ -233,6 +233,32 @@ body {
   color: var(--gold-light);
 }
 
+/* ── FAQ accordion ──────────────────────────────────── */
+.faq-item {
+  background: var(--surface);
+  border: 1px solid var(--border-soft);
+  border-radius: var(--radius-md);
+  padding: 16px 20px;
+  cursor: pointer;
+  transition: border-color 0.2s ease, padding-left 0.2s ease;
+}
+.faq-item[open] {
+  border-left: 3px solid var(--gold);
+  padding-left: 17px;
+}
+.faq-item summary {
+  list-style: none;
+  font-weight: 600;
+  font-size: 0.9375rem;
+  color: var(--text-1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.faq-item summary::-webkit-details-marker {
+  display: none;
+}
+
 /* ── Divider ────────────────────────────────────────── */
 .divider-gold {
   height: 1px;
