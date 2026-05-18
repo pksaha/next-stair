@@ -36,9 +36,14 @@ export default async function BlogIndexPage(
   return (
     <div className="max-w-4xl mx-auto px-6 py-10 space-y-10">
 
-      <div className="space-y-3">
-        <h1 className="text-4xl font-bold">Blog</h1>
-        <p className="text-muted-foreground text-lg">
+      <div style={{ marginBottom: "48px" }}>
+        <div className="section-badge" style={{ marginBottom: "16px" }}>
+          ✦ Blog
+        </div>
+        <h1 className="heading-1" style={{ marginBottom: "12px" }}>
+          AI image prompts &amp; guides
+        </h1>
+        <p className="body-lg">
           AI image prompts, style guides, and tutorials
         </p>
       </div>
@@ -50,42 +55,54 @@ export default async function BlogIndexPage(
             <Link
               key={post.slug}
               href={`/blog/${post.slug}`}
-              className="group border rounded-xl p-6
-                         space-y-3 hover:border-primary/50
-                         hover:bg-muted/20 transition-colors"
+              className="card"
+              style={{ textDecoration: "none", display: "block" }}
             >
-              <div className="flex items-center gap-2
-                              text-xs text-muted-foreground">
-                <span className="bg-muted px-2 py-0.5
-                                 rounded-full capitalize">
-                  {post.category.replace(/-/g, " ")}
-                </span>
-                <span>{post.readingTimeMinutes} min read</span>
+              <div
+                className="section-badge"
+                style={{ marginBottom: "12px" }}
+              >
+                {post.category.replace(/-/g, " ")}
               </div>
 
-              <h2 className="font-semibold text-base
-                             leading-snug
-                             group-hover:text-primary
-                             transition-colors">
+              <h2
+                style={{
+                  fontWeight: 600,
+                  color: "#fff",
+                  fontSize: "1rem",
+                  lineHeight: 1.4,
+                  marginBottom: "8px",
+                }}
+              >
                 {resolved.title}
               </h2>
 
-              <p className="text-sm text-muted-foreground
-                            line-clamp-2 leading-relaxed">
+              <p
+                className="body"
+                style={{
+                  marginBottom: "12px",
+                  display: "-webkit-box",
+                  WebkitLineClamp: 2,
+                  WebkitBoxOrient: "vertical",
+                  overflow: "hidden",
+                }}
+              >
                 {resolved.excerpt}
               </p>
 
-              {post.publishedAt && (
-                <p className="text-xs text-muted-foreground">
-                  {new Date(
-                    post.publishedAt
-                  ).toLocaleDateString(locale, {
-                    year: "numeric",
-                    month: "short",
-                    day: "numeric",
-                  })}
-                </p>
-              )}
+              <div className="flex items-center gap-3">
+                <span className="caption">
+                  {post.readingTimeMinutes} min read
+                </span>
+                {post.publishedAt && (
+                  <span className="caption">
+                    {new Date(post.publishedAt).toLocaleDateString(
+                      locale,
+                      { year: "numeric", month: "short", day: "numeric" }
+                    )}
+                  </span>
+                )}
+              </div>
             </Link>
           )
         })}

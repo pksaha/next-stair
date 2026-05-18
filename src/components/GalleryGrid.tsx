@@ -107,13 +107,13 @@ export function GalleryGrid({
             setBulkMode(!bulkMode)
             clearSelection()
           }}
-          className={[
-            "text-sm border rounded-lg px-3 py-1.5",
-            "transition-colors",
-            bulkMode
-              ? "bg-primary text-primary-foreground border-primary"
-              : "hover:bg-muted",
-          ].join(" ")}
+          className="text-sm border rounded-lg px-3 py-1.5 transition-colors"
+          style={bulkMode ? {
+            background: "var(--gold)",
+            color: "#000",
+            border: "none",
+            fontWeight: 700,
+          } : undefined}
         >
           {bulkMode ? "Cancel selection" : "Select images"}
         </button>
@@ -290,8 +290,13 @@ export function GalleryGrid({
       {confirmDelete && (
         <div className="fixed inset-0 bg-black/50 z-50
                         flex items-center justify-center p-4">
-          <div className="bg-background border rounded-xl
-                          p-6 space-y-4 max-w-sm w-full">
+          <div
+            className="rounded-xl p-6 max-w-sm w-full"
+            style={{
+              background: "var(--surface)",
+              border: "1px solid var(--border)",
+            }}
+          >
             <h3 className="font-semibold">Delete image?</h3>
             <p className="text-sm text-muted-foreground">
               This cannot be undone. The image will be
@@ -308,14 +313,10 @@ export function GalleryGrid({
               </button>
               <button
                 type="button"
-                onClick={() =>
-                  handleSingleDelete(confirmDelete)
-                }
+                onClick={() => handleSingleDelete(confirmDelete)}
                 disabled={isPending}
-                className="flex-1 bg-destructive text-white
-                           rounded-lg px-4 py-2 text-sm
-                           hover:bg-destructive/90
-                           disabled:opacity-50 transition-colors"
+                className="btn-gold flex-1"
+                style={isPending ? { opacity: 0.5 } : undefined}
               >
                 {isPending ? "Deleting..." : "Delete"}
               </button>

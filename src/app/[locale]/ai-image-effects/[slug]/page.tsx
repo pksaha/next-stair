@@ -121,17 +121,32 @@ export default async function ToolPage(
       <div className="max-w-5xl mx-auto px-6 py-10 space-y-16">
 
         {/* ── Hero section ──────────────────────────────── */}
-        <section className="text-center space-y-4">
-          <div className="inline-block bg-primary/10 text-primary
-                          text-sm font-medium px-4 py-1 rounded-full">
-            AI Image Tool
+        <section
+          className="relative overflow-hidden"
+          style={{ padding: "64px 24px 48px" }}
+        >
+          <div
+            style={{
+              position: "absolute",
+              top: "-20%", left: "50%",
+              transform: "translateX(-50%)",
+              width: "600px", height: "400px",
+              background:
+                "radial-gradient(ellipse, " +
+                "rgba(212,160,23,0.1) 0%, transparent 70%)",
+              pointerEvents: "none",
+            }}
+          />
+          <div
+            className="section-badge"
+            style={{ marginBottom: "16px" }}
+          >
+            ✦ AI Image Tool
           </div>
-          <h1 className="text-4xl md:text-5xl font-bold
-                         tracking-tight">
+          <h1 className="heading-1" style={{ marginBottom: "16px" }}>
             {tool.name}
           </h1>
-          <p className="text-muted-foreground text-lg max-w-2xl
-                        mx-auto">
+          <p className="body-lg" style={{ maxWidth: "560px" }}>
             {tool.description}
           </p>
         </section>
@@ -150,22 +165,32 @@ export default async function ToolPage(
 
         {/* ── Features ──────────────────────────────────── */}
         {tool.featureBullets && tool.featureBullets.length > 0 && (
-          <section className="space-y-6">
-            <h2 className="text-2xl font-bold">
+          <section style={{ marginTop: "48px" }}>
+            <h2
+              className="heading-2"
+              style={{ marginBottom: "24px" }}
+            >
               What you can do with {tool.name}
             </h2>
-            <ul className="grid grid-cols-1 md:grid-cols-2
-                           gap-4">
+            <ul className="grid grid-cols-1 md:grid-cols-2 gap-4"
+                style={{ listStyle: "none", padding: 0, margin: 0 }}>
               {tool.featureBullets.map((bullet, i) => (
                 <li
                   key={i}
-                  className="flex items-start gap-3 border
-                             rounded-lg p-4"
+                  className="card"
+                  style={{ display: "flex", gap: "12px", padding: "16px" }}
                 >
-                  <span className="text-primary mt-0.5 shrink-0">
+                  <span
+                    style={{
+                      color: "var(--gold)",
+                      fontWeight: 700,
+                      flexShrink: 0,
+                      marginTop: "2px",
+                    }}
+                  >
                     ✓
                   </span>
-                  <span className="text-sm">{bullet}</span>
+                  <span className="body">{bullet}</span>
                 </li>
               ))}
             </ul>
@@ -202,20 +227,49 @@ export default async function ToolPage(
               {faqItems.map((item, i) => (
                 <details
                   key={i}
-                  className="border rounded-lg px-5 py-4
-                             open:bg-muted/30 cursor-pointer"
+                  style={{
+                    background: "var(--surface)",
+                    border: "1px solid var(--border-soft)",
+                    borderRadius: "var(--radius-md)",
+                    padding: "16px 20px",
+                    cursor: "pointer",
+                  }}
+                  onToggle={(e) => {
+                    const el = e.currentTarget
+                    if (el.open) {
+                      el.style.borderLeft =
+                        "3px solid var(--gold)"
+                      el.style.paddingLeft = "17px"
+                    } else {
+                      el.style.borderLeft = ""
+                      el.style.paddingLeft = "20px"
+                    }
+                  }}
                 >
-                  <summary className="font-medium text-sm
-                                      list-none flex justify-between
-                                      items-center">
+                  <summary
+                    style={{
+                      fontWeight: 600,
+                      fontSize: "0.9375rem",
+                      color: "var(--text-1)",
+                      listStyle: "none",
+                      display: "flex",
+                      justifyContent: "space-between",
+                      alignItems: "center",
+                    }}
+                  >
                     {item.q}
-                    <span className="text-muted-foreground
-                                     text-xs ml-4">
+                    <span
+                      style={{
+                        color: "var(--gold)",
+                        fontSize: "0.75rem",
+                        marginLeft: "16px",
+                        flexShrink: 0,
+                      }}
+                    >
                       ▼
                     </span>
                   </summary>
-                  <p className="text-sm text-muted-foreground
-                                mt-3 leading-relaxed">
+                  <p className="body" style={{ marginTop: "12px" }}>
                     {item.a}
                   </p>
                 </details>
@@ -225,16 +279,28 @@ export default async function ToolPage(
         )}
 
         {/* ── Related tools placeholder ─────────────────── */}
-        <section className="border rounded-xl p-6 bg-muted/20
-                            space-y-3">
-          <h2 className="text-lg font-semibold">
+        <section
+          className="card"
+          style={{
+            background: "var(--surface)",
+            border: "1px solid var(--border-soft)",
+          }}
+        >
+          <h2
+            style={{
+              fontWeight: 600,
+              fontSize: "1.125rem",
+              color: "var(--text-1)",
+              marginBottom: "8px",
+            }}
+          >
             More AI image tools
           </h2>
-          <p className="text-sm text-muted-foreground">
+          <p className="body">
             Explore all our AI tools at{" "}
             <a
               href={`/${locale}/ai-image-effects`}
-              className="text-primary underline"
+              style={{ color: "var(--gold-light)", textDecoration: "underline" }}
             >
               ai-image-effects
             </a>

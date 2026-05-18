@@ -19,7 +19,16 @@ export function LanguageSwitcher() {
     <select
       value={currentLocale}
       onChange={handleChange}
-      className="text-sm border rounded-md px-2 py-1 bg-background cursor-pointer"
+      style={{
+        background: "var(--surface)",
+        border: "1px solid var(--border-soft)",
+        color: "var(--text-2)",
+        borderRadius: "var(--radius-sm)",
+        padding: "5px 8px",
+        fontSize: "0.8125rem",
+        cursor: "pointer",
+        outline: "none",
+      }}
       aria-label="Select language"
     >
       {routing.locales.map((locale) => (

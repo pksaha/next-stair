@@ -66,12 +66,14 @@ export default async function PricingPage(
   return (
     <div className="max-w-5xl mx-auto px-6 py-16 space-y-12">
 
-      <div className="text-center space-y-3">
-        <h1 className="text-4xl font-bold">
+      <div className="text-center" style={{ marginBottom: "48px" }}>
+        <div className="section-badge" style={{ marginBottom: "16px" }}>
+          ✦ Pricing
+        </div>
+        <h1 className="heading-1" style={{ marginBottom: "12px" }}>
           Simple pricing
         </h1>
-        <p className="text-muted-foreground text-lg max-w-xl
-                      mx-auto">
+        <p className="body-lg" style={{ maxWidth: "480px", margin: "0 auto" }}>
           Start free. Upgrade when you need more.
           Cancel anytime.
         </p>
@@ -84,108 +86,170 @@ export default async function PricingPage(
           return (
             <div
               key={tier.key}
-              className={[
-                "border rounded-2xl p-6 space-y-6",
-                "flex flex-col",
+              className={
                 tier.highlight
-                  ? "border-primary shadow-lg " +
-                    "ring-1 ring-primary/20"
-                  : "border-border",
-              ].join(" ")}
+                  ? "card-glow flex flex-col"
+                  : "card flex flex-col"
+              }
+              style={
+                tier.highlight
+                  ? {
+                      border: "1px solid rgba(212,160,23,0.4)",
+                      boxShadow: "0 0 48px rgba(212,160,23,0.1)",
+                    }
+                  : { background: "var(--surface)" }
+              }
             >
               {tier.highlight && (
-                <div className="text-xs font-semibold
-                                text-primary uppercase
-                                tracking-wide">
+                <span
+                  style={{
+                    display: "inline-block",
+                    background:
+                      "linear-gradient(135deg,#F5C842,#D4A017)",
+                    color: "#000",
+                    fontSize: "0.6875rem",
+                    fontWeight: 700,
+                    padding: "3px 12px",
+                    borderRadius: "100px",
+                    letterSpacing: "0.06em",
+                    textTransform: "uppercase",
+                    marginBottom: "12px",
+                  }}
+                >
                   Most popular
-                </div>
+                </span>
               )}
 
-              <div>
-                <h2 className="text-xl font-bold">
+              <div style={{ marginBottom: "20px" }}>
+                <h2
+                  style={{
+                    fontSize: "1.25rem",
+                    fontWeight: 700,
+                    color: "var(--text-1)",
+                    marginBottom: "8px",
+                  }}
+                >
                   {tier.plan.name}
                 </h2>
-                <div className="mt-2 flex items-baseline
-                                gap-1">
-                  <span className="text-4xl font-bold">
+                <div className="flex items-baseline gap-1">
+                  <span
+                    style={{
+                      fontSize: "3rem",
+                      fontWeight: 800,
+                      background:
+                        "linear-gradient(135deg,#F5C842,#D4A017)",
+                      WebkitBackgroundClip: "text",
+                      WebkitTextFillColor: "transparent",
+                      backgroundClip: "text",
+                    }}
+                  >
                     {tier.price}
                   </span>
                   {tier.period && (
-                    <span className="text-muted-foreground
-                                     text-sm">
+                    <span
+                      style={{
+                        color: "rgba(255,255,255,0.5)",
+                        fontSize: "0.875rem",
+                      }}
+                    >
                       {tier.period}
                     </span>
                   )}
                 </div>
               </div>
 
-              <ul className="space-y-2 flex-1">
+              <ul
+                className="flex-1"
+                style={{
+                  listStyle: "none",
+                  padding: 0,
+                  margin: "0 0 24px",
+                }}
+              >
                 {tier.plan.features.map((f) => (
                   <li
                     key={f}
-                    className="flex items-start gap-2
-                               text-sm"
+                    className="flex items-start gap-2"
+                    style={{ marginBottom: "10px", fontSize: "0.875rem" }}
                   >
-                    <span className="text-primary
-                                     shrink-0 mt-0.5">
+                    <span
+                      style={{
+                        color: "var(--gold)",
+                        fontWeight: 700,
+                        flexShrink: 0,
+                      }}
+                    >
                       ✓
                     </span>
-                    <span>{f}</span>
+                    <span style={{ color: "rgba(255,255,255,0.7)" }}>
+                      {f}
+                    </span>
                   </li>
                 ))}
                 {tier.plan.limitations.map((l) => (
                   <li
                     key={l}
-                    className="flex items-start gap-2
-                               text-sm text-muted-foreground"
+                    className="flex items-start gap-2"
+                    style={{ marginBottom: "10px", fontSize: "0.875rem" }}
                   >
-                    <span className="shrink-0 mt-0.5">✗</span>
-                    <span>{l}</span>
+                    <span
+                      style={{
+                        color: "rgba(239,68,68,0.7)",
+                        flexShrink: 0,
+                      }}
+                    >
+                      ✗
+                    </span>
+                    <span style={{ color: "rgba(255,255,255,0.4)" }}>
+                      {l}
+                    </span>
                   </li>
                 ))}
               </ul>
 
               {isCurrentPlan ? (
-                <div className="w-full text-center border
-                                rounded-lg px-4 py-2.5
-                                text-sm font-medium
-                                text-muted-foreground
-                                bg-muted">
-                  Current plan
-                </div>
-              ) : tier.key === "free" ? (
-                <a
-                  href={`/${locale}/sign-up`}
-                  className="w-full block text-center
-                             border rounded-lg px-4 py-2.5
-                             text-sm font-medium
-                             hover:bg-muted transition-colors"
+                <span
+                  style={{
+                    background: "var(--surface-2)",
+                    border: "1px solid var(--border-soft)",
+                    color: "rgba(255,255,255,0.4)",
+                    borderRadius: "var(--radius-md)",
+                    padding: "10px 16px",
+                    textAlign: "center",
+                    fontSize: "0.875rem",
+                    display: "block",
+                  }}
                 >
-                  {tier.cta}
+                  Current plan
+                </span>
+              ) : tier.key === "free" ? (
+                <a href={`/${locale}/sign-up`} style={{ display: "block" }}>
+                  <button className="btn-outline" style={{ width: "100%" }}>
+                    {tier.cta}
+                  </button>
                 </a>
               ) : (
-                <PaddleCheckout
-                  priceId={tier.priceId!}
-                  planName={tier.plan.name}
-                  className={[
-                    "w-full rounded-lg px-4 py-2.5",
-                    "text-sm font-medium transition-colors",
-                    tier.highlight
-                      ? "bg-primary text-primary-foreground" +
-                        " hover:bg-primary/90"
-                      : "border hover:bg-muted",
-                  ].join(" ")}
-                >
-                  {tier.cta}
-                </PaddleCheckout>
+                <div style={{ width: "100%" }}>
+                  <PaddleCheckout
+                    priceId={tier.priceId!}
+                    planName={tier.plan.name}
+                    className={
+                      tier.highlight ? "btn-gold" : "btn-outline"
+                    }
+                  >
+                    {tier.cta}
+                  </PaddleCheckout>
+                </div>
               )}
             </div>
           )
         })}
       </div>
 
-      <p className="text-center text-xs
-                    text-muted-foreground">
+      <p
+        className="caption"
+        style={{ textAlign: "center", marginTop: "24px" }}
+      >
         Payments processed securely by Paddle.
         Cancel anytime from your dashboard.
         All prices in USD. Local taxes may apply.

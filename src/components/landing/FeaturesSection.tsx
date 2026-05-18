@@ -52,30 +52,54 @@ const FEATURES = [
 
 export function FeaturesSection() {
   return (
-    <section className="py-20 px-6">
-      <div className="max-w-5xl mx-auto space-y-12">
+    <section style={{ padding: "80px 24px" }}>
+      <div className="max-w-5xl mx-auto">
 
-        <AnimatedSection className="text-center space-y-3">
-          <h2 className="text-3xl md:text-4xl font-bold">
-            Everything you need
-          </h2>
-          <p className="text-muted-foreground text-lg max-w-xl mx-auto">
-            Built for speed, quality, and real-world use.
-          </p>
-        </AnimatedSection>
+        <div style={{ marginBottom: "48px" }}>
+          <AnimatedSection className="text-center">
+            <div className="section-badge" style={{ marginBottom: "16px" }}>
+              ✦ Features
+            </div>
+            <h2 className="heading-1" style={{ marginBottom: "12px" }}>
+              Everything you need
+            </h2>
+            <p className="body-lg" style={{ maxWidth: "480px", margin: "0 auto" }}>
+              Built for speed, quality, and real-world use.
+            </p>
+          </AnimatedSection>
+        </div>
 
         <StaggerContainer
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
         >
           {FEATURES.map((feature) => (
-            <StaggerItem
-              key={feature.title}
-              className="border rounded-xl p-6 space-y-3
-                         hover:border-primary/30 transition-colors"
-            >
-              <span className="text-3xl">{feature.icon}</span>
-              <h3 className="font-semibold">{feature.title}</h3>
-              <p className="text-sm text-muted-foreground leading-relaxed">
+            <StaggerItem key={feature.title} className="card-glow">
+              <div
+                style={{
+                  width: 48, height: 48,
+                  borderRadius: 12,
+                  background: "rgba(212,160,23,0.15)",
+                  border: "1px solid rgba(212,160,23,0.25)",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  fontSize: "1.5rem",
+                  marginBottom: "16px",
+                }}
+              >
+                {feature.icon}
+              </div>
+              <h3
+                style={{
+                  fontWeight: 600,
+                  fontSize: "1rem",
+                  color: "var(--text-1)",
+                  marginBottom: "8px",
+                }}
+              >
+                {feature.title}
+              </h3>
+              <p className="body" style={{ margin: 0 }}>
                 {feature.description}
               </p>
             </StaggerItem>

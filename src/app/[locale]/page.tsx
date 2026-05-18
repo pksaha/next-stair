@@ -56,58 +56,91 @@ export default async function HomePage({ params }: { params: Params }) {
     <main>
 
       {/* ── 1. Hero ─────────────────────────────────── */}
-      <section className="py-16 md:py-24 px-6 overflow-hidden">
-        <div className="max-w-5xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+      <section
+        className="relative overflow-hidden"
+        style={{
+          paddingTop: "96px",
+          paddingBottom: "96px",
+        }}
+      >
+        {/* Background radial glow */}
+        <div
+          style={{
+            position: "absolute",
+            top: "10%", left: "50%",
+            transform: "translateX(-50%)",
+            width: "800px", height: "500px",
+            background:
+              "radial-gradient(ellipse, " +
+              "rgba(212,160,23,0.12) 0%, " +
+              "transparent 70%)",
+            pointerEvents: "none",
+          }}
+        />
+
+        <div className="relative max-w-6xl mx-auto px-6">
+          <div className="grid grid-cols-1 lg:grid-cols-2
+                          gap-14 items-center">
 
             {/* Left — copy */}
-            <AnimatedSection className="space-y-6">
-              <div className="inline-block text-xs font-medium
-                              bg-primary/10 text-primary
-                              px-4 py-1.5 rounded-full">
-                Powered by gpt-image-1
+            <AnimatedSection className="space-y-7">
+              <div className="section-badge">
+                ✦ Powered by gpt-image-1
               </div>
 
-              <h1 className="text-4xl md:text-5xl lg:text-6xl
-                             font-bold tracking-tight leading-tight">
+              <h1 className="display">
                 Create stunning images{" "}
-                <span className="text-primary">with AI</span>
+                <span className="text-gold">with AI</span>
               </h1>
 
-              <p className="text-lg text-muted-foreground leading-relaxed max-w-md">
+              <p className="body-lg max-w-md">
                 20 AI image tools. 11 languages including
                 Bengali and Hindi. Generate, edit, and
                 transform images in seconds.
               </p>
 
               <div className="flex flex-col sm:flex-row gap-3">
-                <Link
-                  href="/sign-up"
-                  className="bg-primary text-primary-foreground
-                             rounded-xl px-6 py-3 font-semibold
-                             hover:bg-primary/90 transition-colors
-                             text-center"
-                >
-                  Start free — 1 credit →
+                <Link href="/sign-up">
+                  <button className="btn-gold w-full sm:w-auto">
+                    Start free — 1 credit →
+                  </button>
                 </Link>
-                <Link
-                  href="/ai-image-effects"
-                  className="border rounded-xl px-6 py-3 font-semibold
-                             hover:bg-muted transition-colors text-center"
-                >
-                  Explore 20 tools
+                <Link href="/ai-image-effects">
+                  <button className="btn-outline w-full sm:w-auto">
+                    Explore 20 tools
+                  </button>
                 </Link>
               </div>
 
-              <p className="text-xs text-muted-foreground">
-                No credit card required · Payments by Paddle
-              </p>
+              <div className="flex items-center gap-2">
+                <span
+                  style={{
+                    width: 8, height: 8,
+                    borderRadius: "50%",
+                    background: "#4CAF50",
+                    display: "inline-block",
+                    boxShadow: "0 0 8px #4CAF50",
+                  }}
+                />
+                <span className="caption">
+                  No credit card required ·
+                  Payments secured by Paddle
+                </span>
+              </div>
             </AnimatedSection>
 
             {/* Right — live demo */}
             <AnimatedSection delay={0.15} direction="left">
-              <div className="border rounded-2xl p-6 bg-muted/20 space-y-4">
-                <p className="text-sm font-medium">Try it now — free</p>
+              <div
+                className="card-glow"
+                style={{ padding: "24px" }}
+              >
+                <div
+                  className="section-badge"
+                  style={{ marginBottom: "16px" }}
+                >
+                  Try it now — free
+                </div>
                 <HeroDemo locale={locale} />
               </div>
             </AnimatedSection>

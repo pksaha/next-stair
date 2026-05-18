@@ -201,38 +201,61 @@ export default async function BlogPostPage(
             </nav>
 
             {/* Header */}
-            <header className="space-y-4">
-              <div className="flex items-center gap-3
-                              text-xs text-muted-foreground">
-                <span className="bg-muted px-3 py-1 rounded-full
-                                 capitalize">
-                  {post.category.replace(/-/g, " ")}
-                </span>
-                <span>
-                  {post.readingTimeMinutes} min read
-                </span>
-                {post.publishedAt && (
-                  <span>
-                    {new Date(
-                      post.publishedAt
-                    ).toLocaleDateString(locale, {
-                      year: "numeric",
-                      month: "long",
-                      day: "numeric",
-                    })}
-                  </span>
-                )}
+            <header
+              className="relative overflow-hidden"
+              style={{ paddingBottom: "8px" }}
+            >
+              {/* Golden radial glow */}
+              <div
+                style={{
+                  position: "absolute",
+                  top: "-20%", left: "50%",
+                  transform: "translateX(-50%)",
+                  width: "600px", height: "400px",
+                  background:
+                    "radial-gradient(ellipse, " +
+                    "rgba(212,160,23,0.1) 0%, transparent 70%)",
+                  pointerEvents: "none",
+                }}
+              />
+
+              <div
+                className="section-badge"
+                style={{ marginBottom: "16px" }}
+              >
+                {post.category.replace(/-/g, " ")}
               </div>
 
-              <h1 className="text-3xl md:text-4xl font-bold
-                             leading-tight">
+              <h1
+                className="heading-1"
+                style={{ marginBottom: "16px" }}
+              >
                 {resolved.title}
               </h1>
 
-              <p className="text-lg text-muted-foreground
-                            leading-relaxed">
+              <p
+                className="body-lg"
+                style={{ marginBottom: "16px", maxWidth: "640px" }}
+              >
                 {resolved.excerpt}
               </p>
+
+              <div
+                className="flex items-center gap-3"
+                style={{ flexWrap: "wrap" }}
+              >
+                <span className="caption">
+                  {post.readingTimeMinutes} min read
+                </span>
+                {post.publishedAt && (
+                  <span className="caption">
+                    {new Date(post.publishedAt).toLocaleDateString(
+                      locale,
+                      { year: "numeric", month: "long", day: "numeric" }
+                    )}
+                  </span>
+                )}
+              </div>
             </header>
 
             {/* Body */}
@@ -240,28 +263,48 @@ export default async function BlogPostPage(
 
             {/* Related tools — internal links */}
             {relatedTools.length > 0 && (
-              <section className="border-t pt-8 space-y-4">
-                <h2 className="text-lg font-semibold">
+              <section>
+                <h2
+                  style={{
+                    fontWeight: 600,
+                    fontSize: "1.125rem",
+                    color: "#fff",
+                    marginBottom: "16px",
+                    paddingTop: "32px",
+                    borderTop: "1px solid rgba(212,160,23,0.12)",
+                  }}
+                >
                   Try these AI tools
                 </h2>
-                <div className="grid grid-cols-1 sm:grid-cols-3
-                                gap-3">
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
                   {relatedTools.map((tool) => (
                     <Link
                       key={tool.slug}
                       href={`/ai-image-effects/${tool.slug}`}
-                      className="border rounded-xl p-4 space-y-1
-                                 hover:border-primary/50
-                                 hover:bg-muted/30 transition-colors
-                                 group"
+                      className="card"
+                      style={{ textDecoration: "none" }}
                     >
-                      <p className="font-medium text-sm
-                                    group-hover:text-primary
-                                    transition-colors">
+                      <p
+                        style={{
+                          fontWeight: 600,
+                          fontSize: "0.9375rem",
+                          color: "var(--text-1)",
+                          marginBottom: "6px",
+                        }}
+                      >
                         {tool.name}
                       </p>
-                      <p className="text-xs text-muted-foreground
-                                    line-clamp-2">
+                      <p
+                        className="body"
+                        style={{
+                          fontSize: "0.8125rem",
+                          margin: 0,
+                          display: "-webkit-box",
+                          WebkitLineClamp: 2,
+                          WebkitBoxOrient: "vertical",
+                          overflow: "hidden",
+                        }}
+                      >
                         {tool.description}
                       </p>
                     </Link>
@@ -277,14 +320,31 @@ export default async function BlogPostPage(
 
             {/* Tags */}
             {post.tags.length > 0 && (
-              <div className="space-y-3">
-                <p className="text-sm font-medium">Tags</p>
+              <div>
+                <p
+                  style={{
+                    color: "rgba(255,255,255,0.3)",
+                    fontSize: "0.6875rem",
+                    fontWeight: 700,
+                    letterSpacing: "0.1em",
+                    textTransform: "uppercase",
+                    marginBottom: "10px",
+                  }}
+                >
+                  Tags
+                </p>
                 <div className="flex flex-wrap gap-2">
                   {post.tags.map((tag) => (
                     <span
                       key={tag}
-                      className="text-xs bg-muted px-3 py-1
-                                 rounded-full"
+                      style={{
+                        background: "rgba(212,160,23,0.1)",
+                        border: "1px solid rgba(212,160,23,0.2)",
+                        color: "rgba(255,255,255,0.6)",
+                        borderRadius: "100px",
+                        padding: "3px 12px",
+                        fontSize: "0.75rem",
+                      }}
                     >
                       {tag}
                     </span>
@@ -327,23 +387,24 @@ export default async function BlogPostPage(
             )}
 
             {/* CTA */}
-            <div className="border rounded-xl p-4 space-y-3
-                            bg-muted/20">
-              <p className="text-sm font-medium">
+            <div className="card-glow">
+              <p
+                style={{
+                  fontWeight: 600,
+                  fontSize: "0.9375rem",
+                  color: "var(--text-1)",
+                  marginBottom: "6px",
+                }}
+              >
                 Try next-stair free
               </p>
-              <p className="text-xs text-muted-foreground">
+              <p className="caption" style={{ marginBottom: "16px" }}>
                 1 free generation. No credit card required.
               </p>
-              <Link
-                href="/sign-up"
-                className="block w-full text-center
-                           bg-primary text-primary-foreground
-                           rounded-lg px-4 py-2.5 text-sm
-                           font-medium hover:bg-primary/90
-                           transition-colors"
-              >
-                Start for free →
+              <Link href="/sign-up" style={{ display: "block" }}>
+                <button className="btn-gold" style={{ width: "100%" }}>
+                  Start for free →
+                </button>
               </Link>
             </div>
 

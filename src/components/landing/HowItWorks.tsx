@@ -33,27 +33,51 @@ const STEPS = [
 
 export function HowItWorks() {
   return (
-    <section className="py-20 px-6 bg-muted/20">
-      <div className="max-w-4xl mx-auto space-y-12">
+    <section style={{ background: "var(--surface)", padding: "80px 24px" }}>
+      <div className="max-w-4xl mx-auto">
 
-        <AnimatedSection className="text-center space-y-3">
-          <h2 className="text-3xl md:text-4xl font-bold">
-            How it works
-          </h2>
-          <p className="text-muted-foreground text-lg">
-            Three steps from idea to image.
-          </p>
-        </AnimatedSection>
+        <div style={{ marginBottom: "48px" }}>
+          <AnimatedSection className="text-center">
+            <div className="section-badge" style={{ marginBottom: "16px" }}>
+              ✦ How it works
+            </div>
+            <h2 className="heading-1" style={{ marginBottom: "12px" }}>
+              Three steps from idea to image
+            </h2>
+          </AnimatedSection>
+        </div>
 
         <StaggerContainer className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {STEPS.map((step) => (
-            <StaggerItem key={step.number} className="space-y-4">
-              <div className="w-12 h-12 rounded-full bg-primary/10 text-primary
-                              flex items-center justify-center font-bold text-lg">
+            <StaggerItem key={step.number}>
+              <div
+                style={{
+                  width: 56, height: 56,
+                  borderRadius: "50%",
+                  background: "linear-gradient(135deg, #F5C842, #D4A017)",
+                  color: "#000",
+                  fontWeight: 800,
+                  fontSize: "1.25rem",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  boxShadow: "0 0 20px rgba(212,160,23,0.35)",
+                  marginBottom: "20px",
+                }}
+              >
                 {step.number}
               </div>
-              <h3 className="font-semibold text-lg">{step.title}</h3>
-              <p className="text-sm text-muted-foreground leading-relaxed">
+              <h3
+                style={{
+                  fontWeight: 600,
+                  fontSize: "1.125rem",
+                  color: "#fff",
+                  marginBottom: 8,
+                }}
+              >
+                {step.title}
+              </h3>
+              <p className="body" style={{ margin: 0 }}>
                 {step.description}
               </p>
             </StaggerItem>

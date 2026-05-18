@@ -15,7 +15,7 @@ export function PricingSection({ locale }: { locale: string }) {
       price: "$0",
       period: "",
       anchor: null,
-      cta: "Start free",
+      cta: "Get started free",
       priceId: null,
       highlight: false,
       badge: null,
@@ -45,100 +45,162 @@ export function PricingSection({ locale }: { locale: string }) {
   ]
 
   return (
-    <section className="py-20 px-6 bg-muted/20">
-      <div className="max-w-5xl mx-auto space-y-12">
+    <section style={{ padding: "80px 24px" }}>
+      <div className="max-w-5xl mx-auto">
 
-        <AnimatedSection className="text-center space-y-3">
-          <h2 className="text-3xl md:text-4xl font-bold">
-            Simple pricing
-          </h2>
-          <p className="text-muted-foreground text-lg">
-            Start free. Upgrade when you need more.
-            No hidden fees.
-          </p>
-        </AnimatedSection>
+        <div style={{ marginBottom: "48px" }}>
+          <AnimatedSection className="text-center">
+            <div className="section-badge" style={{ marginBottom: "16px" }}>
+              ✦ Pricing
+            </div>
+            <h2 className="heading-1" style={{ marginBottom: "12px" }}>
+              Simple pricing
+            </h2>
+            <p className="body-lg" style={{ maxWidth: "420px", margin: "0 auto" }}>
+              Start free. Upgrade when you need more.
+              No hidden fees.
+            </p>
+          </AnimatedSection>
+        </div>
 
         <StaggerContainer className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {tiers.map((tier) => (
-            <StaggerItem
-              key={tier.key}
-              className={[
-                "border rounded-2xl p-6 space-y-6",
-                "flex flex-col bg-background",
-                tier.highlight
-                  ? "border-primary shadow-lg ring-1 ring-primary/20"
-                  : "border-border",
-              ].join(" ")}
-            >
+            <StaggerItem key={tier.key}>
+              <div
+                className="card-glow flex flex-col h-full"
+                style={
+                  tier.highlight
+                    ? {
+                        border: "1px solid rgba(212,160,23,0.5)",
+                        boxShadow: "0 0 40px rgba(212,160,23,0.12)",
+                      }
+                    : undefined
+                }
+              >
               {tier.badge && (
-                <span className="text-xs font-semibold text-primary uppercase tracking-wide">
+                <span
+                  style={{
+                    fontSize: "0.6875rem",
+                    fontWeight: 700,
+                    background: "linear-gradient(135deg, #F5C842, #D4A017)",
+                    color: "#000",
+                    padding: "3px 12px",
+                    borderRadius: "100px",
+                    display: "inline-block",
+                    marginBottom: "12px",
+                    letterSpacing: "0.05em",
+                    textTransform: "uppercase",
+                  }}
+                >
                   {tier.badge}
                 </span>
               )}
 
-              <div>
-                <h3 className="text-xl font-bold">{tier.plan.name}</h3>
-                <div className="mt-2 flex items-baseline gap-1">
-                  <span className="text-4xl font-bold">{tier.price}</span>
+              <div style={{ marginBottom: "20px" }}>
+                <h3
+                  style={{
+                    fontSize: "1.25rem",
+                    fontWeight: 700,
+                    color: "var(--text-1)",
+                    marginBottom: "8px",
+                  }}
+                >
+                  {tier.plan.name}
+                </h3>
+                <div className="flex items-baseline gap-1">
+                  <span
+                    style={{
+                      fontSize: "3rem",
+                      fontWeight: 800,
+                      background: "linear-gradient(135deg, #F5C842, #D4A017)",
+                      WebkitBackgroundClip: "text",
+                      WebkitTextFillColor: "transparent",
+                      backgroundClip: "text",
+                    }}
+                  >
+                    {tier.price}
+                  </span>
                   {tier.period && (
-                    <span className="text-muted-foreground text-sm">
+                    <span
+                      style={{
+                        color: "rgba(255,255,255,0.5)",
+                        fontSize: "0.875rem",
+                      }}
+                    >
                       {tier.period}
                     </span>
                   )}
                 </div>
                 {tier.anchor && (
-                  <p className="text-xs text-muted-foreground mt-1">
+                  <p
+                    style={{
+                      fontSize: "0.75rem",
+                      color: "rgba(255,255,255,0.4)",
+                      marginTop: "4px",
+                    }}
+                  >
                     {tier.anchor}
                   </p>
                 )}
               </div>
 
-              <ul className="space-y-2 flex-1">
+              <ul
+                className="flex-1"
+                style={{ listStyle: "none", padding: 0, margin: "0 0 24px" }}
+              >
                 {tier.plan.features.map((f) => (
-                  <li key={f} className="flex items-start gap-2 text-sm">
-                    <span className="text-primary shrink-0 mt-0.5">✓</span>
-                    <span>{f}</span>
+                  <li
+                    key={f}
+                    className="flex items-start gap-2"
+                    style={{ marginBottom: "10px", fontSize: "0.875rem" }}
+                  >
+                    <span style={{ color: "var(--gold)", fontWeight: 700, flexShrink: 0 }}>
+                      ✓
+                    </span>
+                    <span style={{ color: "rgba(255,255,255,0.7)" }}>{f}</span>
                   </li>
                 ))}
               </ul>
 
               {tier.key === "free" ? (
-                <Link
-                  href="/sign-up"
-                  className="w-full block text-center border rounded-lg
-                             px-4 py-2.5 text-sm font-medium
-                             hover:bg-muted transition-colors"
-                >
-                  {tier.cta}
+                <Link href="/sign-up" style={{ display: "block" }}>
+                  <button className="btn-outline" style={{ width: "100%" }}>
+                    {tier.cta}
+                  </button>
                 </Link>
               ) : (
-                <PaddleCheckout
-                  priceId={tier.priceId!}
-                  planName={tier.plan.name}
-                  className={[
-                    "w-full rounded-lg px-4 py-2.5",
-                    "text-sm font-medium transition-colors",
-                    tier.highlight
-                      ? "bg-primary text-primary-foreground hover:bg-primary/90"
-                      : "border hover:bg-muted",
-                  ].join(" ")}
-                >
-                  {tier.cta}
-                </PaddleCheckout>
+                <div style={{ width: "100%" }}>
+                  <PaddleCheckout
+                    priceId={tier.priceId!}
+                    planName={tier.plan.name}
+                    className={
+                      tier.highlight ? "btn-gold" : "btn-outline"
+                    }
+                  >
+                    {tier.cta}
+                  </PaddleCheckout>
+                </div>
               )}
+              </div>
             </StaggerItem>
           ))}
         </StaggerContainer>
 
-        <AnimatedSection direction="none" className="text-center">
-          <Link
-            href={`/${locale}/pricing`}
-            className="text-sm text-muted-foreground underline underline-offset-2
-                       hover:text-foreground"
-          >
-            See full pricing details →
-          </Link>
-        </AnimatedSection>
+        <div style={{ marginTop: "32px" }}>
+          <AnimatedSection direction="none" className="text-center">
+            <Link
+              href={`/${locale}/pricing`}
+              style={{
+                fontSize: "0.875rem",
+                color: "rgba(255,255,255,0.45)",
+                textDecoration: "underline",
+                textUnderlineOffset: "3px",
+              }}
+            >
+              See full pricing details →
+            </Link>
+          </AnimatedSection>
+        </div>
 
       </div>
     </section>

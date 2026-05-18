@@ -3,6 +3,7 @@ import { NextIntlClientProvider, hasLocale } from "next-intl"
 import { notFound } from "next/navigation"
 import { routing } from "@/i18n/routing"
 import { SiteHeader } from "@/components/SiteHeader"
+import { Footer } from "@/components/Footer"
 import type { Metadata } from "next"
 
 export const metadata: Metadata = {
@@ -34,6 +35,7 @@ export default async function LocaleLayout({
       <NextIntlClientProvider>
         <SiteHeader />
         <main>{children}</main>
+        <Footer locale={locale} />
       </NextIntlClientProvider>
     </ClerkProvider>
   )

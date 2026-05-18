@@ -53,27 +53,43 @@ export async function ToolsShowcase() {
   const tools = await getAllPublishedTools()
 
   return (
-    <section className="py-20 px-6">
-      <div className="max-w-6xl mx-auto space-y-12">
+    <section style={{ padding: "80px 24px" }}>
+      <div className="max-w-6xl mx-auto">
 
-        <AnimatedSection className="text-center space-y-3">
-          <h2 className="text-3xl md:text-4xl font-bold">
-            20 AI image tools
-          </h2>
-          <p className="text-muted-foreground text-lg max-w-xl mx-auto">
-            Every tool built for a specific creative need. All in one place.
-          </p>
-        </AnimatedSection>
+        <div style={{ marginBottom: "48px" }}>
+          <AnimatedSection className="text-center">
+            <div className="section-badge" style={{ marginBottom: "16px" }}>
+              ✦ 20 AI Tools
+            </div>
+            <h2 className="heading-1" style={{ marginBottom: "12px" }}>
+              20 AI image tools
+            </h2>
+            <p className="body-lg" style={{ maxWidth: "480px", margin: "0 auto" }}>
+              Every tool built for a specific creative need.
+              All in one place.
+            </p>
+          </AnimatedSection>
+        </div>
 
-        <div className="space-y-10">
+        <div style={{ display: "flex", flexDirection: "column", gap: "40px" }}>
           {CATEGORIES.map((cat) => {
-            const catTools = tools.filter((t) => cat.slugs.includes(t.slug))
+            const catTools = tools.filter((t) =>
+              cat.slugs.includes(t.slug)
+            )
             return (
               <AnimatedSection key={cat.label}>
-                <h3 className="text-sm font-medium text-muted-foreground
-                               uppercase tracking-wide mb-4">
+                <p
+                  style={{
+                    color: "rgba(255,255,255,0.3)",
+                    fontSize: "0.6875rem",
+                    fontWeight: 700,
+                    letterSpacing: "0.1em",
+                    textTransform: "uppercase",
+                    marginBottom: "12px",
+                  }}
+                >
                   {cat.label}
-                </h3>
+                </p>
                 <StaggerContainer
                   className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3"
                 >
@@ -81,18 +97,30 @@ export async function ToolsShowcase() {
                     <StaggerItem key={tool.slug} className="min-w-0">
                       <Link
                         href={`/ai-image-effects/${tool.slug}`}
-                        className="block border rounded-xl p-4 space-y-1 text-sm
-                                   hover:border-primary/50 hover:bg-muted/30
-                                   transition-colors group h-full"
+                        className="card"
+                        style={{
+                          display: "block",
+                          textDecoration: "none",
+                          height: "100%",
+                        }}
                       >
-                        <p className="font-medium leading-snug line-clamp-2
-                                      group-hover:text-primary transition-colors">
+                        <p
+                          style={{
+                            fontWeight: 600,
+                            fontSize: "0.875rem",
+                            color: "var(--text-1)",
+                            lineHeight: 1.35,
+                            marginBottom: "4px",
+                            display: "-webkit-box",
+                            WebkitLineClamp: 2,
+                            WebkitBoxOrient: "vertical",
+                            overflow: "hidden",
+                          }}
+                        >
                           {tool.name}
                         </p>
                         {tool.requiresImageUpload && (
-                          <span className="text-xs text-muted-foreground">
-                            Upload photo
-                          </span>
+                          <span className="caption">Upload photo</span>
                         )}
                       </Link>
                     </StaggerItem>
@@ -103,15 +131,15 @@ export async function ToolsShowcase() {
           })}
         </div>
 
-        <AnimatedSection className="text-center">
-          <Link
-            href="/ai-image-effects"
-            className="inline-block border rounded-lg px-6 py-3 text-sm
-                       font-medium hover:bg-muted transition-colors"
-          >
-            See all 20 tools →
-          </Link>
-        </AnimatedSection>
+        <div style={{ textAlign: "center", marginTop: "40px" }}>
+          <AnimatedSection>
+            <Link href="/ai-image-effects">
+              <button className="btn-outline">
+                See all 20 tools →
+              </button>
+            </Link>
+          </AnimatedSection>
+        </div>
 
       </div>
     </section>
